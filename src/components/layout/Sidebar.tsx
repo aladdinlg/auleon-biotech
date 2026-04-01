@@ -120,6 +120,13 @@ export function Sidebar(): React.JSX.Element {
 
         <div className="mt-8 rounded-3xl border border-border/70 bg-muted/50 p-4">
           <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">学习地图 Learning Map</p>
+          <Link
+            href="/guide"
+            onClick={() => setIsOpen(false)}
+            className="mt-2 inline-block text-xs text-teal-400 hover:text-teal-300 hover:underline"
+          >
+            学习指南 →
+          </Link>
           <div className="mt-3">
             <ProgressBar value={overallProgress} />
           </div>

@@ -1,0 +1,204 @@
+{
+  "id": "m5",
+  "slug": "regulatory-ra",
+  "titleZH": "兽药注册法规",
+  "titleEN": "Regulatory Affairs / RA",
+  "color": "violet",
+  "visualizationId": "m5-vich-matrix",
+  "tabs": {
+    "principle": {
+      "sections": [
+        {
+          "id": "m5-1",
+          "headingZH": "VICH指南矩阵与3R导向",
+          "headingEN": "VICH Guideline Matrix and 3R Orientation",
+          "content": "VICH体系为国际兽药技术协调核心框架。GL1/GL2聚焦分析方法学验证（analytical validation），GL3/GL4聚焦稳定性（stability），GL27针对联合疫苗（combination vaccines），GL41对应靶动物安全性（target animal safety）。GL50/GL59强调TABST豁免路径并体现3R原则（Replacement, Reduction, Refinement）。",
+          "keyPoints": [
+            "GL1/GL2 = analytical validation（方法学与检测可靠性）。",
+            "GL3/GL4 = stability（长期、加速与贮存稳定性证据）。",
+            "GL27 = combination vaccines（联合制品的相容性与效力评价）。",
+            "GL41 + GL50/GL59 = TAS与TABST豁免（3R原则）联动。"
+          ],
+          "formulas": [
+            {
+              "latex": "3R = Replacement + Reduction + Refinement",
+              "label": "TABST豁免决策背后的伦理与科学原则"
+            },
+            {
+              "latex": "Guideline Set = GL1, GL2, GL3, GL4, GL27, GL41, GL50, GL59",
+              "label": "本模块覆盖的VICH核心指南集合"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "COMPASS",
+              "content": "VICH指南像跨国注册罗盘：每个GL是一个方位点，组合后才形成可执行的申报路径。"
+            }
+          ]
+        },
+        {
+          "id": "m5-2",
+          "headingZH": "SFDA vNees四部CTD申报结构",
+          "headingEN": "SFDA vNees Four-Part CTD Dossier Structure",
+          "content": "SFDA vNees采用四部CTD逻辑：Part1行政（Admin：CPP、GMP cert、Arabic label、PV plan）；Part2 CMC（cell banks、fermentation、purification、stability）；Part3安全（TAS、environmental、withdrawal period）；Part4有效性（dose-ranging、field trials）。该结构将法规审查拆解为可并行推进的技术包。",
+          "keyPoints": [
+            "Part1 Admin：CPP + GMP证书 + 阿语标签 + 药物警戒计划（PV plan）。",
+            "Part2 CMC：细胞库、发酵、纯化、稳定性全链条可追溯资料。",
+            "Part3 Safety：靶动物安全、环境安全与休药期证据。",
+            "Part4 Efficacy：剂量探索与现场试验（field trials）形成最终保护性论证。"
+          ],
+          "formulas": [
+            {
+              "latex": "CTD = Part1(Admin) + Part2(CMC) + Part3(Safety) + Part4(Efficacy)",
+              "label": "vNees四部申报总体框架"
+            },
+            {
+              "latex": "Review Completeness = Administrative x Technical x Safety x Efficacy",
+              "label": "四维资料完整性乘积思路（任一缺口均可导致审评延迟）"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "STACK",
+              "content": "CTD像四层桥墩，任何一层薄弱都会影响整座桥的承载与通行。"
+            }
+          ]
+        },
+        {
+          "id": "m5-3",
+          "headingZH": "BSL-3工程约束与产线合规",
+          "headingEN": "BSL-3 Engineering Constraints and Production-Line Compliance",
+          "content": "BSL-3设施关键要求包括负压梯度（negative pressure cascade）、双重HEPA过滤（double HEPA filtration）、生物识别互锁气闸（biometric interlock airlocks）及VHP去污能力（VHP decontamination capability）。国内P3建设成本可参考青岛易邦生物基准：8,000 m2约人民币160M。由于Brucella在中国被归类为1类病原微生物，法规要求独立生产线（mandatory independent production line），澳龙已按该要求配置。",
+          "keyPoints": [
+            "BSL-3核心工程：负压级联、双HEPA、生物互锁、VHP全流程去污。",
+            "P3成本基准：Yibang Bio（Qingdao）8,000m2约¥160M。",
+            "Brucella在中国分类为Class 1 pathogenic microorganism。",
+            "Class 1监管后果：必须独立生产线，Auleon已符合（compliant）。"
+          ],
+          "formulas": [
+            {
+              "latex": "Cost Density = 160000000 CNY / 8000 m2 = 20000 CNY per m2",
+              "label": "P3设施单位面积成本估算"
+            },
+            {
+              "latex": "Compliance Requirement = Class 1 Pathogen => Independent Production Line",
+              "label": "病原分类与产线隔离的法规逻辑"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "LOCK",
+              "content": "BSL-3像多重门禁系统，层层隔离不是冗余，而是把生物风险分段拦截。"
+            }
+          ]
+        }
+      ]
+    },
+    "glossary": [
+      {
+        "termEN": "VICH",
+        "termZH": "国际兽药注册技术协调",
+        "definition": "协调兽药技术要求的国际框架，目标是提升标准一致性与注册效率。"
+      },
+      {
+        "termEN": "GL41",
+        "termZH": "靶动物安全指南",
+        "definition": "Target Animal Safety指南，规范靶动物安全性评价设计与判定标准。"
+      },
+      {
+        "termEN": "GL50/GL59",
+        "termZH": "TABST豁免相关指南",
+        "definition": "与批签发靶动物安全试验豁免相关，强调3R导向的证据替代路径。"
+      },
+      {
+        "termEN": "TABST",
+        "termZH": "批签发靶动物安全试验",
+        "definition": "Target Animal Batch Safety Test，部分场景可在满足条件下申请豁免。"
+      },
+      {
+        "termEN": "CTD",
+        "termZH": "通用技术文档",
+        "definition": "注册申报的标准化结构文档，便于监管机构按模块审评。"
+      },
+      {
+        "termEN": "CMC",
+        "termZH": "化学、生产与质量控制",
+        "definition": "Chemistry, Manufacturing and Controls，覆盖工艺与质量体系关键证据。"
+      },
+      {
+        "termEN": "BSL-3",
+        "termZH": "生物安全三级实验设施",
+        "definition": "用于中高风险病原体操作的设施等级，强调工程控制与程序控制。"
+      },
+      {
+        "termEN": "VHP Decontamination",
+        "termZH": "过氧化氢蒸汽去污",
+        "definition": "Vaporized Hydrogen Peroxide去污技术，用于洁净区与设备终末消杀。"
+      }
+    ],
+    "quiz": {
+      "mcq": [
+        {
+          "id": "m5-q1",
+          "question": "VICH指南映射中，哪项对应关系正确？",
+          "options": [
+            "A. GL1/GL2=稳定性，GL3/GL4=分析验证",
+            "B. GL27=靶动物安全，GL41=联合疫苗",
+            "C. GL1/GL2=分析验证；GL3/GL4=稳定性",
+            "D. GL50/GL59=无关TABST"
+          ],
+          "correctAnswer": "C",
+          "explanation": "给定框架中GL1/GL2用于分析验证，GL3/GL4用于稳定性评估。"
+        },
+        {
+          "id": "m5-q2",
+          "question": "关于SFDA vNees四部CTD，哪项描述正确？",
+          "options": [
+            "A. Part1=CMC，Part2=Admin",
+            "B. Part3=Efficacy，Part4=Safety",
+            "C. Part1包含CPP/GMP/阿语标签/PV计划",
+            "D. vNees只有两部分文件"
+          ],
+          "correctAnswer": "C",
+          "explanation": "Part1为行政模块，明确包括CPP、GMP证书、Arabic label和PV计划。"
+        },
+        {
+          "id": "m5-q3",
+          "question": "以下哪组属于BSL-3关键工程要求？",
+          "options": [
+            "A. 正压病房、单HEPA、普通门禁",
+            "B. 负压级联、双HEPA、生物识别互锁气闸、VHP去污",
+            "C. 自然通风、开放式走廊、无去污系统",
+            "D. 仅需高温灭菌锅即可"
+          ],
+          "correctAnswer": "B",
+          "explanation": "BSL-3核心要求正是负压级联、双HEPA、互锁气闸与VHP去污能力。"
+        },
+        {
+          "id": "m5-q4",
+          "question": "P3设施成本基准中，8,000m2约对应哪一总投资？",
+          "options": [
+            "A. ¥16M",
+            "B. ¥60M",
+            "C. ¥160M",
+            "D. ¥1.6B"
+          ],
+          "correctAnswer": "C",
+          "explanation": "给定基准为Yibang Bio（Qingdao）约¥160M/8,000m2。"
+        },
+        {
+          "id": "m5-q5",
+          "question": "Brucella在中国被列为Class 1病原后，对产线的直接法规影响是？",
+          "options": [
+            "A. 可与普通细菌疫苗共线生产",
+            "B. 强制独立生产线（independent production line）",
+            "C. 仅需标签变更，无需工程改造",
+            "D. 可取消所有TAS试验"
+          ],
+          "correctAnswer": "B",
+          "explanation": "Class 1病原要求更严格生物安全隔离，核心要求之一是独立生产线。"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "id": "m3",
+  "slug": "brucellosis",
+  "titleZH": "布鲁氏菌病疫苗",
+  "titleEN": "Brucellosis Vaccine Series",
+  "color": "amber",
+  "visualizationId": "m3-strain-comparison",
+  "tabs": {
+    "principle": {
+      "sections": [
+        {
+          "id": "m3-1",
+          "headingZH": "经典疫苗株比较：S2、A19、Rev.1",
+          "headingEN": "Classical Strain Comparison: S2, A19, Rev.1",
+          "content": "S2株（B. suis）特点是残余毒力低（low residual virulence）且可口服，但会干扰血清学检测。A19株（B. abortus）偏牛用场景，在紧急免疫中报告VE=56.8%（95%CI 15.8-77.8），流产归因分值为89.1%。Rev.1株（B. melitensis）是小反刍动物金标准，整体VE=65%，并且母羊（ewes）保护优于公羊（rams）。",
+          "keyPoints": [
+            "S2（B. suis）：可口服、低残余毒力，但有serology interference。",
+            "A19（B. abortus）：cattle-specific，VE=56.8%（95%CI 15.8-77.8）。",
+            "A19关联指标：abortion attributable fraction=89.1%。",
+            "Rev.1（B. melitensis）：overall VE=65%，ewes优于rams。"
+          ],
+          "formulas": [
+            {
+              "latex": "VE_A19 = 56.8% (95%CI 15.8-77.8)",
+              "label": "A19紧急免疫效力"
+            },
+            {
+              "latex": "AF_abortion = 89.1%",
+              "label": "流产归因分值"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "TRIAD",
+              "content": "三株疫苗像三把不同工况工具：S2强调可及性，A19强调牛群应急，Rev.1强调小反刍基线保护。"
+            }
+          ]
+        },
+        {
+          "id": "m3-2",
+          "headingZH": "BA0711、DIVA与宿主遗传因素",
+          "headingEN": "BA0711, DIVA, and Host Genetic Factors",
+          "content": "BA0711是新型高减毒株（novel highly attenuated strain），并显示更好的抗生素敏感性（better antibiotic sensitivity）。其可与ddPCR DIVA策略兼容，采用FAM/HEX/ROX探针，LOD为2.54-3.11 copies/rxn。免疫机制上，Brucella通过T4SS注入阻断吞噬体与溶酶体融合（prevents phagolysosomal fusion），而IRF3多态性可影响巨噬细胞清除效率。",
+          "keyPoints": [
+            "BA0711：高减毒且抗生素敏感性更优。",
+            "ddPCR DIVA：FAM/HEX/ROX三通道，LOD 2.54-3.11 copies/rxn。",
+            "T4SS注入效应可阻断phagolysosomal fusion，支持胞内存活。",
+            "IRF3 polymorphism影响macrophage clearance efficiency。"
+          ],
+          "formulas": [
+            {
+              "latex": "LOD_ddPCR = 2.54 to 3.11 copies per reaction",
+              "label": "DIVA检测下限范围"
+            },
+            {
+              "latex": "DIVA = Differentiating Infected from Vaccinated Animals",
+              "label": "DIVA定义"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "FILTER",
+              "content": "DIVA像三色滤镜系统，把感染信号与免疫信号在同一检测流程中分层识别。"
+            }
+          ]
+        },
+        {
+          "id": "m3-3",
+          "headingZH": "成本收益模型与长期控制收益",
+          "headingEN": "Cost-Benefit Model and Long-Term Control Benefits",
+          "content": "Iraq CBA模型给出明确经济收益：BCR=4.25，NPV=$10,564,828，IRR=91.38%。流行病学端，血清流行率在20年内由9.22%下降至0.73%。该结果说明持续免疫计划不仅改善疾病负担，也具备显著财政回报。",
+          "keyPoints": [
+            "Iraq CBA：BCR=4.25，NPV=$10,564,828，IRR=91.38%。",
+            "20年流行率轨迹：9.22% -> 0.73%。",
+            "高IRR说明投资回收速度与效率较高。",
+            "布病控制收益同时体现在公共卫生与畜牧经济端。"
+          ],
+          "formulas": [
+            {
+              "latex": "BCR = 4.25; NPV = 10,564,828 USD; IRR = 91.38%",
+              "label": "Iraq模型核心输出"
+            },
+            {
+              "latex": "Seroprevalence Drop = 9.22% - 0.73% = 8.49%",
+              "label": "20年绝对下降幅度"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "SHIELD",
+              "content": "持续免疫像长期防洪工程，短期见流速下降，长期显著降低总损失。"
+            }
+          ]
+        }
+      ]
+    },
+    "glossary": [
+      {
+        "termEN": "S2 Strain",
+        "termZH": "S2株",
+        "definition": "源自B. suis的减毒活疫苗株，低残余毒力，可口服，但影响血清学判读。"
+      },
+      {
+        "termEN": "A19 Strain",
+        "termZH": "A19株",
+        "definition": "源自B. abortus，主要用于牛群免疫与应急防控。"
+      },
+      {
+        "termEN": "Rev.1 Strain",
+        "termZH": "Rev.1株",
+        "definition": "源自B. melitensis，小反刍动物防控中的经典标准株。"
+      },
+      {
+        "termEN": "BA0711",
+        "termZH": "BA0711株",
+        "definition": "新型高减毒候选株，强调安全性、抗生素敏感性与DIVA兼容。"
+      },
+      {
+        "termEN": "T4SS",
+        "termZH": "四型分泌系统",
+        "definition": "Brucella用于向宿主细胞注入效应蛋白的分泌系统。"
+      },
+      {
+        "termEN": "IRF3 Polymorphism",
+        "termZH": "IRF3多态性",
+        "definition": "宿主遗传差异之一，可影响巨噬细胞对病原清除效率。"
+      },
+      {
+        "termEN": "DIVA",
+        "termZH": "感染与免疫鉴别",
+        "definition": "Differentiating Infected from Vaccinated Animals，用于区分感染阳性与免疫阳性。"
+      },
+      {
+        "termEN": "ddPCR",
+        "termZH": "数字微滴PCR",
+        "definition": "高灵敏核酸检测方法，可在低拷贝水平实现精准定量。"
+      }
+    ],
+    "quiz": {
+      "mcq": [
+        {
+          "id": "m3-q1",
+          "question": "关于S2株，哪项描述正确？",
+          "options": [
+            "A. 高残余毒力且不能口服",
+            "B. 低残余毒力、可口服，但会干扰血清学检测",
+            "C. 仅适用于禽类",
+            "D. 与血清学检测完全无关"
+          ],
+          "correctAnswer": "B",
+          "explanation": "S2的特点正是低残余毒力与可口服，但存在serology interference。"
+        },
+        {
+          "id": "m3-q2",
+          "question": "A19在紧急免疫中的VE与95%CI是哪项？",
+          "options": [
+            "A. VE=56.8%，95%CI 15.8-77.8",
+            "B. VE=86.5%，95%CI 65.8-97.8",
+            "C. VE=26.8%，95%CI 5.8-47.8",
+            "D. VE=96.8%，95%CI 75.8-99.8"
+          ],
+          "correctAnswer": "A",
+          "explanation": "题干指定A19应急免疫证据：56.8%和15.8-77.8。"
+        },
+        {
+          "id": "m3-q3",
+          "question": "Rev.1在小反刍中的总体结论是？",
+          "options": [
+            "A. overall VE=65%，且ewes保护优于rams",
+            "B. overall VE=35%，且rams优于ewes",
+            "C. overall VE=95%，无性别差异",
+            "D. 不推荐用于小反刍"
+          ],
+          "correctAnswer": "A",
+          "explanation": "Rev.1核心事实是overall VE=65%，并且ewes优于rams。"
+        },
+        {
+          "id": "m3-q4",
+          "question": "BA0711配套ddPCR DIVA参数正确的是？",
+          "options": [
+            "A. 探针FAM/HEX/ROX，LOD 2.54-3.11 copies/rxn",
+            "B. 仅FAM探针，LOD 25-31 copies/rxn",
+            "C. 无需探针，LOD 0.1 copies/rxn",
+            "D. 探针Cy5，LOD 100 copies/rxn"
+          ],
+          "correctAnswer": "A",
+          "explanation": "指定事实即FAM/HEX/ROX和2.54-3.11 copies/rxn。"
+        },
+        {
+          "id": "m3-q5",
+          "question": "关于免疫逃逸与经济学结果，哪项组合正确？",
+          "options": [
+            "A. T4SS促进吞噬溶酶体融合；BCR=0.42",
+            "B. IRF3不影响清除；20年9.22%->7.3%",
+            "C. T4SS阻断phagolysosomal fusion；BCR=4.25，NPV=$10,564,828，IRR=91.38%，9.22%->0.73%",
+            "D. Brucella完全胞外复制；IRR=9.38%"
+          ],
+          "correctAnswer": "C",
+          "explanation": "该选项完整覆盖免疫机制与Iraq CBA关键数字。"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "id": "m1",
+  "slug": "bio-foundation",
+  "titleZH": "兽用生物制品基础",
+  "titleEN": "Veterinary Biologics Foundation",
+  "color": "teal",
+  "visualizationId": "m1-vaccine-types",
+  "tabs": {
+    "principle": {
+      "sections": [
+        {
+          "id": "m1-1",
+          "headingZH": "疫苗分类体系",
+          "headingEN": "Vaccine Classification System",
+          "content": "兽用生物制品按抗原呈递方式分为四大类：活减毒疫苗、灭活疫苗、亚单位疫苗与基因工程疫苗。不同类型在免疫原性、安全性与生产成本之间存在根本性权衡。",
+          "keyPoints": [
+            "活疫苗（Live Attenuated）：毒力减弱但保留完整抗原结构，诱导体液+细胞双通路免疫",
+            "灭活疫苗（Inactivated）：化学/热处理灭活，安全性高但免疫原性弱，通常需要佐剂",
+            "亚单位疫苗（Subunit）：仅含保护性抗原蛋白，需精确表位映射，EG95即属此类",
+            "基因工程疫苗：利用重组DNA技术在异源系统（如E.coli）中表达目标抗原"
+          ],
+          "formulas": [
+            {
+              "latex": "K_D = \\frac{k_{off}}{k_{on}}",
+              "label": "抗原-抗体结合解离常数 Kd，单位 mol/L，值越小亲和力越强"
+            },
+            {
+              "latex": "\\text{VE} = 1 - \\frac{\\text{Attack Rate (Vaccinated)}}{\\text{Attack Rate (Unvaccinated)}}",
+              "label": "疫苗效力 Vaccine Efficacy — 临床评估核心指标"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "🔑",
+              "content": "亚单位疫苗如同给免疫系统展示一把钥匙的局部形状（抗原表位），而非整把钥匙（完整病原体）。锁（B细胞受体）识别形状后产生能匹配的抗体，之后遇到真实的完整钥匙时，抗体能精准封锁其功能域。"
+            }
+          ]
+        },
+        {
+          "id": "m1-2",
+          "headingZH": "原核 vs 真核表达系统",
+          "headingEN": "Prokaryotic vs Eukaryotic Expression Systems",
+          "content": "重组蛋白疫苗的工业化生产面临表达系统的核心抉择。E. coli（原核）与CHO细胞（真核）在成本、产量与蛋白质修饰能力上存在本质差异，澳龙的EG95技术突破正是基于对原核系统的深度优化。",
+          "keyPoints": [
+            "E. coli (原核)：产量高（每升发酵液可达克级），成本低，但无糖基化修饰，蛋白可能形成包涵体（inclusion body）",
+            "CHO细胞 (真核)：糖基化修饰完整，折叠更接近天然构象，但成本高出10-100倍，培养周期长",
+            "澳龙EG95技术突破：通过柔性接头串联表达（(GGGGS)n linker + 四聚体）在E.coli中实现40%总蛋白表达量，远超单体的5%",
+            "全菌体灭活（Bacterin）新工艺：省去色谱纯化步骤，98%保护率与纯化蛋白疫苗相当"
+          ],
+          "formulas": [
+            {
+              "latex": "\\text{Expression Gain} = \\frac{\\text{Tandem Multimer Output}}{\\text{Monomer Output}} \\approx \\frac{40\\%}{5\\%} = 8\\times",
+              "label": "澳龙四聚体串联表达增益估算（基于文献数据）"
+            }
+          ],
+          "analogies": []
+        },
+        {
+          "id": "m1-3",
+          "headingZH": "免疫应答双通路",
+          "headingEN": "Dual-Pathway Immune Response",
+          "content": "疫苗保护效力来自体液免疫与细胞免疫的协同激活。对于胞外病原体，抗体（IgG/IgA）介导的体液免疫是主要保护机制；而对于胞内菌（如布鲁氏菌），细胞免疫（CTL、IFNγ）不可或缺。",
+          "keyPoints": [
+            "体液免疫：B细胞识别抗原→浆细胞产生特异性IgG/IgA→抗体中和病原体或调理吞噬",
+            "细胞免疫：CD4+ T辅助细胞→激活B细胞和CD8+ CTL→杀伤感染细胞",
+            "亲和力成熟（Avidity Maturation）：多价抗原结构与B细胞受体的多位点交叉交联，显著增强免疫记忆强度",
+            "对布鲁氏菌：体液免疫不足，因其为胞内菌；细胞免疫（IFNγ、CTL）对清除关键"
+          ],
+          "formulas": [],
+          "analogies": []
+        }
+      ]
+    },
+    "glossary": [
+      { "id": "g1", "termEN": "Subunit Vaccine", "termZH": "亚单位疫苗", "definition": "仅含病原体保护性抗原蛋白组分的疫苗，不含完整病原体，安全性高", "category": "vaccine-type" },
+      { "id": "g2", "termEN": "Adjuvant", "termZH": "佐剂", "definition": "增强疫苗免疫原性的非特异性免疫促进剂，如ISA71、Montanide", "category": "formulation" },
+      { "id": "g3", "termEN": "Epitope", "termZH": "表位/抗原决定簇", "definition": "抗原分子上被B细胞或T细胞受体识别的特异性结构区域", "category": "immunology" },
+      { "id": "g4", "termEN": "Vaccine Efficacy (VE)", "termZH": "疫苗效力", "definition": "接种疫苗后降低感染/发病风险的百分比，VE=1-(攻毒率接种组/攻毒率对照组)", "category": "clinical" },
+      { "id": "g5", "termEN": "Prokaryotic Expression", "termZH": "原核表达", "definition": "利用细菌（如E.coli BL21）生产重组蛋白，成本低、产量高，但缺乏糖基化修饰", "category": "production" },
+      { "id": "g6", "termEN": "Inclusion Body", "termZH": "包涵体", "definition": "原核表达中蛋白质错误折叠聚集形成的不溶性颗粒，需变性复性处理", "category": "production" },
+      { "id": "g7", "termEN": "GPI-anchored Protein", "termZH": "GPI锚定蛋白", "definition": "通过糖基磷脂酰肌醇（GPI）锚定在细胞膜表面的蛋白质，EG95即属此类", "category": "molecular" },
+      { "id": "g8", "termEN": "Avidity", "termZH": "亲合力", "definition": "抗体与多价抗原多位点结合的总体结合强度，区别于单价亲和力（affinity）", "category": "immunology" }
+    ],
+    "quiz": {
+      "mcq": [
+        {
+          "id": "m1-q1",
+          "question": "EG95疫苗属于以下哪种疫苗类型？",
+          "options": [
+            "A. 活减毒疫苗（Live Attenuated）",
+            "B. 灭活全菌疫苗（Inactivated Whole Organism）",
+            "C. 基因工程亚单位疫苗（Recombinant Subunit）",
+            "D. 类毒素疫苗（Toxoid）"
+          ],
+          "correctIndex": 2,
+          "explanation": "EG95是通过重组DNA技术，将细粒棘球绦虫的EG95基因克隆到pET28b载体并在E.coli中表达的亚单位蛋白疫苗，属于基因工程亚单位疫苗。"
+        },
+        {
+          "id": "m1-q2",
+          "question": "与CHO细胞（真核）表达系统相比，E.coli（原核）表达系统的主要优势是？",
+          "options": [
+            "A. 糖基化修饰更完整，蛋白构象更接近天然状态",
+            "B. 生产成本显著更低，单位体积产量更高",
+            "C. 不会形成包涵体，下游纯化更简单",
+            "D. 可分泌蛋白到培养基，减少细胞破碎步骤"
+          ],
+          "correctIndex": 1,
+          "explanation": "原核表达（E.coli）的核心优势是低成本和高产量。每升发酵液可达克级蛋白产量，成本比CHO系统低10-100倍。缺点是无糖基化修饰且可能形成包涵体。"
+        },
+        {
+          "id": "m1-q3",
+          "question": "布鲁氏菌病活疫苗（如S2株）为何比单纯的蛋白亚单位疫苗对该病有更好的保护效果？",
+          "options": [
+            "A. 活疫苗抗体滴度更高，体液免疫更强",
+            "B. 布鲁氏菌为胞内菌，活疫苗能诱导细胞免疫（CTL/IFNγ）清除胞内细菌",
+            "C. 活疫苗接种途径（口服）更方便，依从性更高",
+            "D. 亚单位疫苗无法通过现行GMP认证"
+          ],
+          "correctIndex": 1,
+          "explanation": "布鲁氏菌是兼性胞内寄生菌，能逃逸到细胞内增殖。单纯体液免疫（抗体）无法清除胞内细菌。活减毒疫苗能激活CD4+/CD8+ T细胞和IFNγ通路，诱导杀伤感染细胞的细胞免疫，这是其保护的核心机制。"
+        },
+        {
+          "id": "m1-q4",
+          "question": "澳龙EG95疫苗采用四聚体串联表达配合(GGGGS)n柔性接头的核心工程目的是？",
+          "options": [
+            "A. 防止蛋白质降解，延长半衰期",
+            "B. 提高大肠杆菌中蛋白表达量并增强多价抗原的亲合力效应",
+            "C. 使蛋白质能够分泌到培养基中",
+            "D. 添加糖基化修饰位点以增强免疫原性"
+          ],
+          "correctIndex": 1,
+          "explanation": "(GGGGS)n柔性接头提供空间自由度防止域间折叠干扰，四聚体串联使E.coli表达量从~5%提升至~40%总蛋白。多价结构还能与B细胞受体多位点交叉交联，诱发更强的亲合力效应和免疫记忆。"
+        },
+        {
+          "id": "m1-q5",
+          "question": "全球兽药市场反刍动物疫苗的复合年增长率（CAGR）预测区间为？",
+          "options": [
+            "A. 2.1% - 3.5%",
+            "B. 6.6% - 7.9%",
+            "C. 12% - 15%",
+            "D. 18% - 22%"
+          ],
+          "correctIndex": 1,
+          "explanation": "根据Mordor Intelligence等机构预测，全球反刍动物疫苗市场CAGR为6.6%-7.9%，预计从2025年的~31.9亿美元增长至2030年的44-70亿美元区间，亚太/东南亚是增速最快的引擎。"
+        }
+      ],
+      "caseBased": [
+        {
+          "id": "m1-c1",
+          "caseDescription": "某生物技术公司拟开发一款针对牛的重组蛋白疫苗，候选抗原为15kDa的胞外寄生虫表面蛋白。初步评估显示该蛋白在E.coli中表达量仅达总蛋白的3-5%，且经纯化后免疫实验结果显示小鼠血清抗体滴度较低。",
+          "question": "基于澳龙EG95的工程经验，该公司应优先考虑哪种技术策略来提升疫苗免疫原性和生产经济性？",
+          "options": [
+            "A. 转换为CHO细胞表达系统以获得更完整的糖基化修饰",
+            "B. 采用串联多聚体策略（(GGGGS)n接头连接2-4个抗原拷贝）并评估全菌体灭活工艺",
+            "C. 增加佐剂用量（从ISA71提升至Freund完全佐剂）以弥补免疫原性不足",
+            "D. 缩短发酵时间至对数期中期以减少包涵体形成"
+          ],
+          "correctAnswer": "B",
+          "explanation": "串联多聚体策略（如澳龙EG95四聚体）通过(GGGGS)n柔性接头连接多个抗原拷贝，可将E.coli表达量从3-5%提升至35-40%总蛋白（约8倍增益），同时多价结构诱发更强的亲合力效应。全菌体灭活（Bacterin）工艺可省去成本高昂的色谱纯化步骤，同时保留抗原完整性。这两项策略的组合是解决低表达量和低免疫原性双重问题的最佳方案。"
+        }
+      ]
+    }
+  }
+}

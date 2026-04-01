@@ -1,0 +1,204 @@
+{
+  "id": "m2",
+  "slug": "eg95-vaccine",
+  "titleZH": "EG95亚单位疫苗",
+  "titleEN": "EG95 Subunit Vaccine",
+  "color": "emerald",
+  "visualizationId": "m2-eg95-lifecycle",
+  "tabs": {
+    "principle": {
+      "sections": [
+        {
+          "id": "m2-1",
+          "headingZH": "EG95分子结构与表位",
+          "headingEN": "EG95 Molecular Architecture and Epitopes",
+          "content": "EG95是细粒棘球绦虫来源的保护性抗原，分子量16.6 kDa，属于GPI锚定蛋白（GPI-anchored protein），并含有纤连蛋白III型结构域（fibronectin type III domain）。当前无直接晶体结构（no direct crystal structure），常用AlphaFold模型UniProt Q25309进行教学可视化。",
+          "keyPoints": [
+            "EG95关键参数：16.6 kDa + GPI锚定 + FnIII结构域。",
+            "3个B细胞表位（B-cell epitopes）：aa 11-29、51-79、100-110。",
+            "aa 51-79常作为优势识别片段（immunodominant region）讲解。",
+            "结构证据现状：无直接实验晶体结构，推荐AlphaFold Q25309。"
+          ],
+          "formulas": [
+            {
+              "latex": "M_EG95 = 16.6 kDa",
+              "label": "EG95分子量"
+            },
+            {
+              "latex": "EpitopeSet = [11-29, 51-79, 100-110]",
+              "label": "已报道B细胞表位区间"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "KEY",
+              "content": "可把EG95看成三段钥匙齿，抗体像锁芯模板，对关键齿位（aa 51-79）最敏感。"
+            }
+          ]
+        },
+        {
+          "id": "m2-2",
+          "headingZH": "表达工程与产率提升",
+          "headingEN": "Expression Engineering and Yield Improvement",
+          "content": "澳龙技术路线采用pET28b载体、BL21(DE3)宿主，并利用(GGGGS)n柔性接头（flexible linker）实现四聚体串联表达（tetramer tandem）。该工程将表达占比由单体约5%提升至约40%总菌体蛋白（total cell protein）。",
+          "keyPoints": [
+            "表达组合：pET28b / BL21(DE3) / (GGGGS)n / tetramer tandem。",
+            "串联表达产率约40%，显著高于单体约5%。",
+            "柔性接头用于降低结构域互扰并保持折叠自由度。",
+            "高表达为规模化和降本工艺提供基础。"
+          ],
+          "formulas": [
+            {
+              "latex": "YieldGain = 40% / 5% = 8",
+              "label": "串联表达相对单体的近似增益倍数"
+            },
+            {
+              "latex": "TCP_tandem = about 40%",
+              "label": "四聚体串联占总菌体蛋白比例"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "CHAIN",
+              "content": "单体表达像单车道运输，串联四聚体像多车道并联，提高单位时间通量。"
+            }
+          ]
+        },
+        {
+          "id": "m2-3",
+          "headingZH": "全菌体路径与公共卫生价值",
+          "headingEN": "Bacterin Pathway and Public Health Value",
+          "content": "EG95可采用全菌体裂解物灭活疫苗（bacterin, whole-cell lysate）策略，以降低纯化成本。羊攻毒试验报告保护率98%。流行病学层面，GBD 2019显示囊型包虫病（CE）每年约207,368新发病例与122,457 DALYs。产业竞争上，Auleon（China）时间点为2007，Tecnovax（Argentina）注册时间为2011。",
+          "keyPoints": [
+            "Bacterin策略在羊挑战模型中报告98%保护率。",
+            "全球CE负担：207,368 new cases per year，122,457 DALYs。",
+            "竞争对比：Auleon（China, 2007）vs Tecnovax（Argentina, registered 2011）。",
+            "技术意义：低成本工艺有利于高流行区的大规模接种覆盖。"
+          ],
+          "formulas": [
+            {
+              "latex": "ProtectionRate = 98%",
+              "label": "羊攻毒保护率"
+            },
+            {
+              "latex": "AnnualBurden = 207368 cases + 122457 DALYs",
+              "label": "GBD 2019年度疾病负担"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "MAP",
+              "content": "纯化蛋白像高速公路方案，bacterin像成本更低的主干道，在资源有限地区更易快速覆盖。"
+            }
+          ]
+        }
+      ]
+    },
+    "glossary": [
+      {
+        "termEN": "EG95 Antigen",
+        "termZH": "EG95抗原",
+        "definition": "细粒棘球绦虫保护性抗原蛋白，分子量16.6 kDa。"
+      },
+      {
+        "termEN": "GPI-Anchored Protein",
+        "termZH": "GPI锚定蛋白",
+        "definition": "通过糖基磷脂酰肌醇锚定于膜表面的蛋白类型。"
+      },
+      {
+        "termEN": "Fibronectin Type III Domain",
+        "termZH": "纤连蛋白III型结构域",
+        "definition": "常见蛋白结构域（FnIII），参与蛋白识别和结合。"
+      },
+      {
+        "termEN": "B-cell Epitope",
+        "termZH": "B细胞表位",
+        "definition": "被B细胞受体或抗体识别的抗原片段。"
+      },
+      {
+        "termEN": "Flexible Linker (GGGGS)n",
+        "termZH": "(GGGGS)n柔性接头",
+        "definition": "串联表达中用于连接结构域并减少互扰的肽段。"
+      },
+      {
+        "termEN": "Tetramer Tandem Expression",
+        "termZH": "四聚体串联表达",
+        "definition": "将多个抗原单元串联后表达，以提高产量和多价性。"
+      },
+      {
+        "termEN": "Bacterin",
+        "termZH": "全菌体灭活疫苗",
+        "definition": "基于细胞裂解物或全菌体抗原制备的灭活制剂。"
+      },
+      {
+        "termEN": "DALY",
+        "termZH": "伤残调整生命年",
+        "definition": "衡量疾病总体负担的指标，综合死亡与伤残损失。"
+      }
+    ],
+    "quiz": {
+      "mcq": [
+        {
+          "id": "m2-q1",
+          "question": "关于EG95分子属性，哪项正确？",
+          "options": [
+            "A. 6.6 kDa，胞浆酶",
+            "B. 16.6 kDa，GPI锚定并含FnIII结构域",
+            "C. 166 kDa，跨膜离子通道",
+            "D. 26.6 kDa，核蛋白"
+          ],
+          "correctAnswer": "B",
+          "explanation": "EG95的核心描述是16.6 kDa、GPI锚定、含FnIII结构域。"
+        },
+        {
+          "id": "m2-q2",
+          "question": "EG95已报道的B细胞表位区间是哪组？",
+          "options": [
+            "A. aa 1-10, 30-50, 80-99",
+            "B. aa 11-29, 51-79, 100-110",
+            "C. aa 15-25, 60-90, 120-140",
+            "D. aa 2-8, 40-48, 75-83"
+          ],
+          "correctAnswer": "B",
+          "explanation": "标准三段为aa 11-29、51-79、100-110。"
+        },
+        {
+          "id": "m2-q3",
+          "question": "澳龙EG95表达工程的正确组合是？",
+          "options": [
+            "A. pET28b / BL21(DE3) / (GGGGS)n / tetramer tandem",
+            "B. CHO / pcDNA3.1 / 无linker / 单体",
+            "C. Sf9 / Baculovirus / 二聚体",
+            "D. 酵母 / 仅信号肽分泌"
+          ],
+          "correctAnswer": "A",
+          "explanation": "核心组合为pET28b、BL21(DE3)、(GGGGS)n和四聚体串联表达。"
+        },
+        {
+          "id": "m2-q4",
+          "question": "四聚体串联表达与单体表达的典型对比是？",
+          "options": [
+            "A. 5% -> 40%（约8倍）",
+            "B. 40% -> 5%",
+            "C. 5% -> 8%",
+            "D. 两者均固定为20%"
+          ],
+          "correctAnswer": "A",
+          "explanation": "给定事实是单体约5%，串联约40%，约8倍增益。"
+        },
+        {
+          "id": "m2-q5",
+          "question": "以下哪项组合完整匹配EG95关键事实？",
+          "options": [
+            "A. Bacterin保护率58%；CE 20,736病例/年",
+            "B. Auleon 2017；Tecnovax 2001",
+            "C. Bacterin保护率98%；CE 207,368病例/年、122,457 DALYs；Auleon 2007 vs Tecnovax 2011",
+            "D. EG95有直接晶体结构PDB已定"
+          ],
+          "correctAnswer": "C",
+          "explanation": "题干要求的精确数字包括98%、207,368、122,457及2007/2011时间点。"
+        }
+      ]
+    }
+  }
+}

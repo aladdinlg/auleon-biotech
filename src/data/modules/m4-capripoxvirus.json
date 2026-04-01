@@ -1,0 +1,204 @@
+{
+  "id": "m4",
+  "slug": "capripoxvirus",
+  "titleZH": "山羊痘与LSD疫苗",
+  "titleEN": "Capripoxvirus & LSD Cross-Protection",
+  "color": "orange",
+  "visualizationId": "m4-capripox-phylogeny",
+  "tabs": {
+    "principle": {
+      "sections": [
+        {
+          "id": "m4-1",
+          "headingZH": "Capripoxvirus同源性与关键抗原",
+          "headingEN": "Capripoxvirus Homology and Key Antigens",
+          "content": "LSDV、GTPV、SPPV同属Capripoxvirus属，核苷酸同源性约96-97%。在免疫检测中，P32蛋白（ORF074）可用于间接ELISA，报告灵敏度94%、特异度96.6%。L1R类似蛋白（ORF060）具有肉豆蔻酰化（myristoylated）特征并含6个半胱氨酸残基，参与病毒入侵过程。",
+          "keyPoints": [
+            "LSDV/GTPV/SPPV：96-97% nucleotide identity，系统发育上高度接近。",
+            "P32（ORF074）间接ELISA性能：sensitivity 94%，specificity 96.6%。",
+            "L1R analog（ORF060）：myristoylated + 6 cysteine residues，与病毒入侵相关。",
+            "高同源性是跨保护（cross-protection）策略的分子基础。"
+          ],
+          "formulas": [
+            {
+              "latex": "Identity = 96% to 97%",
+              "label": "Capripoxvirus成员间核苷酸同源性范围"
+            },
+            {
+              "latex": "ELISA Performance = Sensitivity 94%, Specificity 96.6%",
+              "label": "P32间接ELISA关键诊断参数"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "TREE",
+              "content": "三种病毒像同一科谱系中的近亲分支，基因差异小但宿主与流行特征可不同。"
+            }
+          ]
+        },
+        {
+          "id": "m4-2",
+          "headingZH": "跨保护证据、剂量策略与传播时间线",
+          "headingEN": "Cross-Protection Evidence, Dose Strategy, and Spread Timeline",
+          "content": "跨保护研究显示：Goatpox（GTPV）可提供完整LSD保护，而Sheeppox（SPPV）保护不足。印度Uttarkashi试验提示牛用剂量需为山羊剂量的3倍。疫情传播时间线呈区域扩散：Africa/Middle East（2012）到Balkans（2015）与Russia（2015），再至South Asia（2019）、Vietnam/Myanmar（2020）、Thailand/Laos（2021）。Thailand BSTS模型评估大规模免疫后病例下降约78-119%。",
+          "keyPoints": [
+            "GTPV -> complete LSD protection；SPPV -> insufficient protection。",
+            "Uttarkashi（India）提示牛剂量约为山羊剂量3倍（3x goat dose）。",
+            "LSD传播：2012非洲/中东 -> 2015巴尔干/俄罗斯 -> 2019南亚 -> 2020越南/缅甸 -> 2021泰国/老挝。",
+            "Thailand BSTS评估：mass vaccination后病例减少78-119%。"
+          ],
+          "formulas": [
+            {
+              "latex": "Cattle Dose = 3 x Goat Dose",
+              "label": "Uttarkashi试验的跨物种剂量换算关系"
+            },
+            {
+              "latex": "Case Reduction = 78% to 119%",
+              "label": "BSTS模型评估的免疫后病例下降区间"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "WAVE",
+              "content": "疫情扩散像波前推进，质量足够的群体免疫相当于在传播路径上设置减速带。"
+            }
+          ]
+        },
+        {
+          "id": "m4-3",
+          "headingZH": "东南亚商业化落地与渠道网络",
+          "headingEN": "Southeast Asia Commercial Deployment and Distribution Network",
+          "content": "澳龙在东南亚出口节奏明确：2021年向老挝出口200,000剂，2022年向柬埔寨出口500,000剂。区域分销矩阵包括：Vietnam=AVAC/Olmix Asialand，Indonesia=PT.Swadesi/SHS International，Thailand=Union Castap，Philippines=Compania JM/Advira。该网络为后续LSD持续免疫计划提供在地化交付能力。",
+          "keyPoints": [
+            "Auleon exports：Laos 200,000 doses（2021）；Cambodia 500,000 doses（2022）。",
+            "Vietnam distributors：AVAC / Olmix Asialand。",
+            "Indonesia distributors：PT.Swadesi / SHS International。",
+            "Thailand与Philippines渠道：Union Castap；Compania JM / Advira。"
+          ],
+          "formulas": [
+            {
+              "latex": "Export Growth = 500000 / 200000 = 2.5",
+              "label": "2022对比2021的出口剂量倍数"
+            },
+            {
+              "latex": "Total Doses (2021+2022) = 700000",
+              "label": "已披露两年合计出口剂量"
+            }
+          ],
+          "analogies": [
+            {
+              "icon": "NETWORK",
+              "content": "分销体系像多节点物流网，疫苗是高时效货物，节点越稳，规模化接种越可控。"
+            }
+          ]
+        }
+      ]
+    },
+    "glossary": [
+      {
+        "termEN": "Capripoxvirus",
+        "termZH": "山羊痘病毒属",
+        "definition": "包含LSDV、GTPV、SPPV的痘病毒属，成员间遗传同源性高。"
+      },
+      {
+        "termEN": "LSDV",
+        "termZH": "牛结节性皮肤病病毒",
+        "definition": "引发牛结节性皮肤病的病原，近年来在亚非欧多区域扩散。"
+      },
+      {
+        "termEN": "GTPV",
+        "termZH": "山羊痘病毒",
+        "definition": "Capripoxvirus成员，相关疫苗可对LSD提供跨保护。"
+      },
+      {
+        "termEN": "SPPV",
+        "termZH": "绵羊痘病毒",
+        "definition": "Capripoxvirus成员，部分研究显示其对LSD跨保护不足。"
+      },
+      {
+        "termEN": "P32 (ORF074)",
+        "termZH": "P32蛋白（ORF074）",
+        "definition": "用于Capripox相关血清学检测的重要抗原，常见于间接ELISA。"
+      },
+      {
+        "termEN": "L1R Analog (ORF060)",
+        "termZH": "L1R类似蛋白（ORF060）",
+        "definition": "参与病毒入侵的结构蛋白，具有myristoylation和多个半胱氨酸位点。"
+      },
+      {
+        "termEN": "BSTS Model",
+        "termZH": "贝叶斯结构时间序列模型",
+        "definition": "用于评估干预政策（如大规模免疫）对病例趋势影响的时间序列方法。"
+      },
+      {
+        "termEN": "Cross-Protection",
+        "termZH": "交叉保护",
+        "definition": "一种病原相关疫苗对另一近缘病原产生保护效果的现象。"
+      }
+    ],
+    "quiz": {
+      "mcq": [
+        {
+          "id": "m4-q1",
+          "question": "LSDV、GTPV、SPPV三者的核苷酸同源性最接近哪一范围？",
+          "options": [
+            "A. 60-70%",
+            "B. 75-82%",
+            "C. 96-97%",
+            "D. 99.9-100%"
+          ],
+          "correctAnswer": "C",
+          "explanation": "三者同属Capripoxvirus，报道同源性约96-97%。"
+        },
+        {
+          "id": "m4-q2",
+          "question": "P32（ORF074）间接ELISA的性能描述正确的是？",
+          "options": [
+            "A. 灵敏度94%，特异度96.6%",
+            "B. 灵敏度64%，特异度76.6%",
+            "C. 灵敏度99.9%，特异度40%",
+            "D. 灵敏度50%，特异度50%"
+          ],
+          "correctAnswer": "A",
+          "explanation": "P32相关间接ELISA常引用参数为Sensitivity 94%、Specificity 96.6%。"
+        },
+        {
+          "id": "m4-q3",
+          "question": "关于跨保护证据，哪项最符合已给事实？",
+          "options": [
+            "A. SPPV可提供完整LSD保护，GTPV不足",
+            "B. GTPV与SPPV都无法提供LSD保护",
+            "C. GTPV可提供完整LSD保护，SPPV不足",
+            "D. 只有LSDV同源株才有任何保护"
+          ],
+          "correctAnswer": "C",
+          "explanation": "事实要求是Goatpox（GTPV）可完整保护LSD，而Sheeppox（SPPV）保护不足。"
+        },
+        {
+          "id": "m4-q4",
+          "question": "Uttarkashi（India）试验提示牛用剂量应如何设置？",
+          "options": [
+            "A. 牛剂量=山羊剂量的1/3",
+            "B. 牛剂量=山羊剂量",
+            "C. 牛剂量=山羊剂量的3倍",
+            "D. 剂量与物种无关"
+          ],
+          "correctAnswer": "C",
+          "explanation": "给定证据指出cattle dose约为goat dose的3倍。"
+        },
+        {
+          "id": "m4-q5",
+          "question": "关于市场落地与防控效果，哪项组合正确？",
+          "options": [
+            "A. 泰国BSTS显示病例上升78-119%；老挝2022出口500,000剂",
+            "B. 泰国BSTS显示病例下降78-119%；老挝2021出口200,000剂、柬埔寨2022出口500,000剂",
+            "C. 越南唯一分销商为Union Castap；印尼无渠道",
+            "D. 菲律宾渠道为AVAC/Olmix Asialand"
+          ],
+          "correctAnswer": "B",
+          "explanation": "正确组合包括BSTS病例下降78-119%和两笔出口：Laos 200,000（2021）、Cambodia 500,000（2022）。"
+        }
+      ]
+    }
+  }
+}

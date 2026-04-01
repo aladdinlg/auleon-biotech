@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { PrincipleTab } from '@/components/tabs/PrincipleTab';
 import { GlossaryTab } from '@/components/tabs/GlossaryTab';
 import { QuizTab } from '@/components/tabs/QuizTab';
+import { VisualTab } from '@/components/tabs/VisualTab';
 import { MolstarViewer } from '@/components/bio/viewers/MolstarViewer';
 import { cn } from '@/lib/utils';
 import moduleData from '@/data/modules/m1-bio-foundation.json';
@@ -71,17 +72,7 @@ export default function BioFoundationPage() {
         )}
 
         {activeTab === 'visual' && (
-          <div className="flex h-96 items-center justify-center rounded-xl border-2 border-dashed border-teal-300 bg-teal-50/30 dark:border-teal-700 dark:bg-teal-950/20">
-            <div className="text-center">
-              <p className="text-2xl">🔬</p>
-              <p className="mt-2 text-sm font-medium text-teal-700 dark:text-teal-400">
-                M1 Visualization — To be built in Stage F
-              </p>
-              <p className="mt-1 text-xs text-gray-400">
-                Visualization ID: {moduleData.visualizationId}
-              </p>
-            </div>
-          </div>
+          <VisualTab visualizationId={moduleData.visualizationId} />
         )}
 
         {activeTab === 'mechanism' && (

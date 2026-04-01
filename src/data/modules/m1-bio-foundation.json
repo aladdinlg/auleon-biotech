@@ -4,7 +4,7 @@
   "titleZH": "兽用生物制品基础",
   "titleEN": "Veterinary Biologics Foundation",
   "color": "teal",
-  "visualizationId": "m1-vaccine-types",
+  "visualizationId": "m1-vaccine-pcr-qc",
   "tabs": {
     "principle": {
       "sections": [

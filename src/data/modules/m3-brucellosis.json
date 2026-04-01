@@ -4,7 +4,7 @@
   "titleZH": "布鲁氏菌病疫苗",
   "titleEN": "Brucellosis Vaccine Series",
   "color": "amber",
-  "visualizationId": "m3-strain-comparison",
+  "visualizationId": "m3-brucella-evasion",
   "tabs": {
     "principle": {
       "sections": [

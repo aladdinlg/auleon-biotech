@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { PrincipleTab } from '@/components/tabs/PrincipleTab';
 import { GlossaryTab } from '@/components/tabs/GlossaryTab';
 import { QuizTab } from '@/components/tabs/QuizTab';
+import { VisualTab } from '@/components/tabs/VisualTab';
 import { cn } from '@/lib/utils';
 import type { PrincipleSection } from '@/lib/types/chapter';
 import type { GlossaryTerm } from '@/lib/types/glossary';
@@ -131,17 +132,7 @@ export function ModulePage({
         )}
 
         {activeTab === 'visual' && (
-          <div className="flex h-96 items-center justify-center rounded-xl border-2 border-dashed border-teal-300 bg-teal-50/30 dark:border-teal-700 dark:bg-teal-950/20">
-            <div className="text-center">
-              <p className="text-2xl">🔬</p>
-              <p className="mt-2 text-sm font-medium text-teal-700 dark:text-teal-400">
-                Visualization component — built in Stage F
-              </p>
-              <p className="mt-1 text-xs text-gray-400">
-                Visualization ID: {moduleData.visualizationId}
-              </p>
-            </div>
-          </div>
+          <VisualTab visualizationId={moduleData.visualizationId} />
         )}
 
         {activeTab === 'mechanism' && (

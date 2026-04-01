@@ -4,7 +4,7 @@
   "titleZH": "兽药注册法规",
   "titleEN": "Regulatory Affairs / RA",
   "color": "violet",
-  "visualizationId": "m5-vich-matrix",
+  "visualizationId": "m5-ctd-navigator",
   "tabs": {
     "principle": {
       "sections": [

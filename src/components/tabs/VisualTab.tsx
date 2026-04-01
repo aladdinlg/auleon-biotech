@@ -36,7 +36,7 @@ function PlaceholderViz({ id }: { id: string }) {
 const VizRegistry: Record<string, React.ComponentType> = {};
 
 const DYNAMIC_MAP: Record<string, () => Promise<{ [key: string]: React.ComponentType }>> = {
-  'm1-vaccine-types': () => import('@/components/visualizations/VaccinePCRQC').then((m) => ({ default: m.VaccinePCRQC })),
+  'm1-vaccine-pcr-qc': () => import('@/components/visualizations/VaccinePCRQC').then((m) => ({ default: m.VaccinePCRQC })),
   'm2-eg95-lifecycle': () => import('@/components/visualizations/EG95LifeCycle').then((m) => ({ default: m.EG95LifeCycle })),
   'm3-strain-comparison': () => import('@/components/visualizations/StrainComparison').then((m) => ({ default: m.StrainComparison })),
   'm3-bcr-model': () => import('@/components/visualizations/BCRModel').then((m) => ({ default: m.BCRModel })),

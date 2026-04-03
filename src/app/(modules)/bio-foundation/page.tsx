@@ -8,6 +8,7 @@ import { VisualTab } from '@/components/tabs/VisualTab';
 import { MolstarViewer } from '@/components/bio/viewers/MolstarViewer';
 import { cn } from '@/lib/utils';
 import { RegulatoryTabContent } from '@/components/tabs/m1/RegulatoryTabContent';
+import { MarketTabContent } from '@/components/tabs/m1/MarketTabContent';
 import moduleData from '@/data/modules/m1-bio-foundation.json';
 import type { PrincipleSection } from '@/lib/types/chapter';
 import type { GlossaryTerm } from '@/lib/types/glossary';
@@ -110,83 +111,7 @@ export default function BioFoundationPage() {
         )}
 
         {activeTab === 'market' && (
-          <div className="space-y-6">
-            <div>
-              <h2 className="mb-1 text-xl font-semibold text-gray-900 dark:text-slate-100">
-                全球兽药市场格局
-              </h2>
-              <p className="text-sm text-gray-500 dark:text-slate-400">
-                反刍动物疫苗市场规模与增长预测 · 数据来源：Mordor Intelligence 2024
-              </p>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-3">
-              {[
-                {
-                  label: '2025 市场规模',
-                  value: '~$31.9B',
-                  sub: '全球兽药市场总量',
-                  color: 'teal',
-                },
-                {
-                  label: 'CAGR 2025–2030',
-                  value: '6.6–7.9%',
-                  sub: '反刍动物疫苗年复合增长率',
-                  color: 'blue',
-                },
-                {
-                  label: '2030 预测规模',
-                  value: '$44–70B',
-                  sub: '亚太/东南亚是最快增速引擎',
-                  color: 'violet',
-                },
-              ].map((card) => (
-                <div
-                  key={card.label}
-                  className={cn(
-                    'rounded-xl border p-5 text-center',
-                    card.color === 'teal' && 'border-teal-200 bg-teal-50 dark:border-teal-800 dark:bg-teal-950/30',
-                    card.color === 'blue' && 'border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/30',
-                    card.color === 'violet' && 'border-violet-200 bg-violet-50 dark:border-violet-800 dark:bg-violet-950/30',
-                  )}
-                >
-                  <p className="mb-1 text-xs text-gray-500 dark:text-slate-400">{card.label}</p>
-                  <p className={cn(
-                    'text-2xl font-bold',
-                    card.color === 'teal' && 'text-teal-700 dark:text-teal-300',
-                    card.color === 'blue' && 'text-blue-700 dark:text-blue-300',
-                    card.color === 'violet' && 'text-violet-700 dark:text-violet-300',
-                  )}>
-                    {card.value}
-                  </p>
-                  <p className="mt-1 text-xs text-gray-500 dark:text-slate-400">{card.sub}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="rounded-xl border border-gray-200 bg-white p-5 dark:border-slate-700 dark:bg-slate-800">
-              <p className="mb-3 text-sm font-semibold text-gray-900 dark:text-slate-100">
-                竞争格局快照
-              </p>
-              <div className="space-y-3">
-                {[
-                  { company: 'Zoetis', share: '22%', note: '全球最大兽药企业，口蹄疫 + 猪蓝耳疫苗领导者' },
-                  { company: 'Boehringer Ingelheim', share: '16%', note: '猪疫苗强势，并购 Merial 后规模扩张' },
-                  { company: 'Merck AH (MSD)', share: '14%', note: '反刍动物 BVD、布鲁氏菌疫苗核心供应商' },
-                  { company: '中牧股份 / 普莱柯', share: '国内 Top5', note: '中国市场主导，政府采购渠道优势' },
-                  { company: 'Auleon Biologicals（澳龙）', share: '新进入者', note: 'EG95 棘球蚴疫苗 — 全球唯一已商业化产品' },
-                ].map((row) => (
-                  <div key={row.company} className="flex items-start gap-4 border-b border-gray-100 pb-3 last:border-0 last:pb-0 dark:border-slate-700">
-                    <div className="w-40 flex-shrink-0">
-                      <p className="text-sm font-medium text-gray-900 dark:text-slate-100">{row.company}</p>
-                      <p className="text-xs text-teal-600 dark:text-teal-400">{row.share}</p>
-                    </div>
-                    <p className="text-xs leading-5 text-gray-600 dark:text-slate-400">{row.note}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <MarketTabContent />
         )}
 
         {activeTab === 'quiz' && (

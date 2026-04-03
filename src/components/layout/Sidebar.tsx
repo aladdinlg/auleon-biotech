@@ -127,62 +127,63 @@ export function Sidebar(): React.JSX.Element {
           >
             学习指南 →
           </Link>
+
+          <nav className="mt-3 space-y-2">
+            {CHAPTERS.map((chapter) => {
+              const isActive =
+                pathname === chapter.href || (chapter.href !== "/" && pathname.startsWith(chapter.href));
+              const content = (
+                <div
+                  className={cn(
+                    "flex items-center gap-3 rounded-2xl border px-4 py-3 transition",
+                    isActive
+                      ? "border-teal-400/40 bg-teal-400/10 text-foreground"
+                      : "border-border/50 bg-muted/20 text-foreground hover:border-border hover:bg-muted/50",
+                    !chapter.available && "opacity-75",
+                  )}
+                >
+                  <div
+                    className={cn(
+                      "flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl",
+                      isActive ? "bg-teal-400/20 text-teal-300" : "bg-muted/50",
+                    )}
+                  >
+                    <SidebarIcon icon={chapter.icon} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2">
+                      <p className="truncate text-sm font-semibold">
+                        M{chapter.order}：{chapter.title}
+                      </p>
+                      {chapter.available ? (
+                        <Badge tone="success" className="bg-teal-400/15 text-[10px] text-teal-300">
+                          {formatPercent(getChapterProgress(chapter.id))}
+                        </Badge>
+                      ) : (
+                        <Badge className="bg-white/10 text-[10px] text-slate-300">锁定</Badge>
+                      )}
+                    </div>
+                    <p className="truncate text-xs text-muted-foreground">{chapter.titleEn}</p>
+                  </div>
+                </div>
+              );
+
+              if (!chapter.available) {
+                return <div key={chapter.id}>{content}</div>;
+              }
+
+              return (
+                <Link key={chapter.id} href={chapter.href} onClick={() => setIsOpen(false)}>
+                  {content}
+                </Link>
+              );
+            })}
+          </nav>
+
           <div className="mt-3">
             <ProgressBar value={overallProgress} />
           </div>
         </div>
-
-        <nav className="mt-6 space-y-2">
-          {CHAPTERS.map((chapter) => {
-            const isActive =
-              pathname === chapter.href || (chapter.href !== "/" && pathname.startsWith(chapter.href));
-            const content = (
-              <div
-                className={cn(
-                  "flex items-center gap-3 rounded-2xl border px-4 py-3 transition",
-                  isActive
-                    ? "border-teal-400/40 bg-teal-400/10 text-foreground"
-                    : "border-border/50 bg-muted/20 text-foreground hover:border-border hover:bg-muted/50",
-                  !chapter.available && "opacity-75",
-                )}
-              >
-                <div
-                  className={cn(
-                    "flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl",
-                    isActive ? "bg-teal-400/20 text-teal-300" : "bg-muted/50",
-                  )}
-                >
-                  <SidebarIcon icon={chapter.icon} />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-2">
-                    <p className="truncate text-sm font-semibold">
-                      M{chapter.order}：{chapter.title}
-                    </p>
-                    {chapter.available ? (
-                      <Badge tone="success" className="bg-teal-400/15 text-[10px] text-teal-300">
-                        {formatPercent(getChapterProgress(chapter.id))}
-                      </Badge>
-                    ) : (
-                      <Badge className="bg-white/10 text-[10px] text-slate-300">锁定</Badge>
-                    )}
-                  </div>
-                    <p className="truncate text-xs text-muted-foreground">{chapter.titleEn}</p>
-                </div>
-              </div>
-            );
-
-            if (!chapter.available) {
-              return <div key={chapter.id}>{content}</div>;
-            }
-
-            return (
-              <Link key={chapter.id} href={chapter.href} onClick={() => setIsOpen(false)}>
-                {content}
-              </Link>
-            );
-          })}
-        </nav>
 
         <div className="mt-auto space-y-4 rounded-3xl border border-border/70 bg-muted/50 p-4">
           <div>

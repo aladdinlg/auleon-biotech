@@ -4,40 +4,99 @@ import { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
 import type { FeatureCollection, Geometry } from 'geojson';
 
-// Country data: ISO numeric code → { firstYear, policy }
-const LSD_DATA: Record<number, { firstYear: number; policy: string }> = {
-  788: { firstYear: 1988, policy: '地方性流行，长期防控计划' },  // Tunisia
-  12:  { firstYear: 2000, policy: '周期性疫情，区域扑灭计划' },  // Algeria
-  818: { firstYear: 2006, policy: '与口蹄疫联合防控' },          // Egypt
-  792: { firstYear: 2013, policy: 'EUA紧急疫苗授权' },           // Turkey
-  300: { firstYear: 2015, policy: '紧急扑灭，疫苗支持' },        // Greece
-  100: { firstYear: 2016, policy: '进口限制+强制免疫' },         // Bulgaria
-  356: { firstYear: 2019, policy: '边境检疫升级' },              // India
-  764: { firstYear: 2021, policy: 'DLD紧急授权GTPV疫苗' },      // Thailand
-  360: { firstYear: 2022, policy: 'BBPMSOH EUA授权' },           // Indonesia
-  704: { firstYear: 2021, policy: 'DAH紧急使用授权' },           // Vietnam
-  116: { firstYear: 2022, policy: '澳龙援助出口50万剂' },        // Cambodia
-  418: { firstYear: 2021, policy: '澳龙援助出口20万剂' },        // Laos
-  144: { firstYear: 2023, policy: '监控体系建立中' },            // Sri Lanka
-  586: { firstYear: 2022, policy: '边境预警，疫苗储备' },        // Pakistan
-  682: { firstYear: 2000, policy: '地方性流行，区域管控' },      // Saudi Arabia
-  368: { firstYear: 2012, policy: 'Iraq持续高流行区' },          // Iraq
-  364: { firstYear: 2018, policy: '季节性暴发，免疫加强' },      // Iran
+// Verified outbreak data — WOAH/FAO/peer-reviewed sources
+const LSD_OUTBREAK_DATA = [
+  // Africa (baseline, pre-2012 endemic)
+  { country: "Zambia",       iso3: "ZMB", year: 1929, region: "Africa",       cluster: "endemic" },
+  { country: "Egypt",        iso3: "EGY", year: 1988, region: "Africa",       cluster: "endemic" },
+  { country: "Israel",       iso3: "ISR", year: 1989, region: "Middle East",  cluster: "wave1"  },
+  { country: "South Africa", iso3: "ZAF", year: 1945, region: "Africa",       cluster: "endemic" },
+  { country: "Kenya",        iso3: "KEN", year: 1957, region: "Africa",       cluster: "endemic" },
+  { country: "Ethiopia",     iso3: "ETH", year: 1983, region: "Africa",       cluster: "endemic" },
+  { country: "Sudan",        iso3: "SDN", year: 1972, region: "Africa",       cluster: "endemic" },
+  { country: "Nigeria",      iso3: "NGA", year: 1974, region: "Africa",       cluster: "endemic" },
+  // Wave 1: Middle East 2012-2014
+  { country: "Jordan",       iso3: "JOR", year: 2012, region: "Middle East",  cluster: "wave1"  },
+  { country: "Iraq",         iso3: "IRQ", year: 2012, region: "Middle East",  cluster: "wave1"  },
+  { country: "Kuwait",       iso3: "KWT", year: 2012, region: "Middle East",  cluster: "wave1"  },
+  { country: "Saudi Arabia", iso3: "SAU", year: 2012, region: "Middle East",  cluster: "wave1"  },
+  { country: "Lebanon",      iso3: "LBN", year: 2013, region: "Middle East",  cluster: "wave1"  },
+  { country: "Turkey",       iso3: "TUR", year: 2013, region: "Middle East",  cluster: "wave1"  },
+  { country: "Iran",         iso3: "IRN", year: 2014, region: "Middle East",  cluster: "wave1"  },
+  // Wave 2: Europe & Caucasus 2015-2016
+  { country: "Russia",         iso3: "RUS", year: 2015, region: "Europe",     cluster: "wave2"  },
+  { country: "Kazakhstan",     iso3: "KAZ", year: 2015, region: "Europe",     cluster: "wave2"  },
+  { country: "Greece",         iso3: "GRC", year: 2015, region: "Europe",     cluster: "wave2"  },
+  { country: "Bulgaria",       iso3: "BGR", year: 2016, region: "Europe",     cluster: "wave2"  },
+  { country: "North Macedonia",iso3: "MKD", year: 2016, region: "Europe",     cluster: "wave2"  },
+  { country: "Serbia",         iso3: "SRB", year: 2016, region: "Europe",     cluster: "wave2"  },
+  { country: "Kosovo",         iso3: "XKX", year: 2016, region: "Europe",     cluster: "wave2"  },
+  { country: "Albania",        iso3: "ALB", year: 2016, region: "Europe",     cluster: "wave2"  },
+  { country: "Montenegro",     iso3: "MNE", year: 2016, region: "Europe",     cluster: "wave2"  },
+  // Wave 3: South Asia & China 2019
+  { country: "India",       iso3: "IND", year: 2019, region: "South Asia",    cluster: "wave3"  },
+  { country: "Bangladesh",  iso3: "BGD", year: 2019, region: "South Asia",    cluster: "wave3"  },
+  { country: "China",       iso3: "CHN", year: 2019, region: "East Asia",     cluster: "wave3"  },
+  { country: "Nepal",       iso3: "NPL", year: 2020, region: "South Asia",    cluster: "wave3"  },
+  { country: "Pakistan",    iso3: "PAK", year: 2020, region: "South Asia",    cluster: "wave3"  },
+  // Wave 4: Southeast Asia 2020-2022
+  { country: "Vietnam",     iso3: "VNM", year: 2020, region: "Southeast Asia", cluster: "wave4" },
+  { country: "Myanmar",     iso3: "MMR", year: 2020, region: "Southeast Asia", cluster: "wave4" },
+  { country: "Thailand",    iso3: "THA", year: 2021, region: "Southeast Asia", cluster: "wave4" },
+  { country: "Laos",        iso3: "LAO", year: 2021, region: "Southeast Asia", cluster: "wave4" },
+  { country: "Cambodia",    iso3: "KHM", year: 2021, region: "Southeast Asia", cluster: "wave4" },
+  { country: "Malaysia",    iso3: "MYS", year: 2021, region: "Southeast Asia", cluster: "wave4" },
+  { country: "Indonesia",   iso3: "IDN", year: 2022, region: "Southeast Asia", cluster: "wave4" },
+  { country: "Mongolia",    iso3: "MNG", year: 2021, region: "East Asia",      cluster: "wave4" },
+  { country: "Japan",       iso3: "JPN", year: 2024, region: "East Asia",      cluster: "wave4" },
+];
+
+const WAVE_COLORS = {
+  endemic: "#6b7280",
+  wave1:   "#f59e0b",
+  wave2:   "#3b82f6",
+  wave3:   "#8b5cf6",
+  wave4:   "#ef4444",
 };
+
+const WAVE_LABELS = {
+  endemic: "非洲地方性 Pre-2012",
+  wave1:   "第一波：中东 2012-14",
+  wave2:   "第二波：欧洲/高加索 2015-16",
+  wave3:   "第三波：南亚/中国 2019-20",
+  wave4:   "第四波：东南亚 2021-24",
+};
+
+// ISO 3166-1 alpha-3 → ISO numeric (for topojson d.id lookup)
+const ISO3_TO_NUMERIC: Record<string, number> = {
+  ZMB: 894, EGY: 818, ISR: 376, ZAF: 710, KEN: 404,
+  ETH: 231, SDN: 736, NGA: 566, JOR: 400, IRQ: 368,
+  KWT: 414, SAU: 682, LBN: 422, TUR: 792, IRN: 364,
+  RUS: 643, KAZ: 398, GRC: 300, BGR: 100, MKD: 807,
+  SRB: 688, ALB:   8, MNE: 499, IND: 356, BGD:  50,
+  CHN: 156, NPL: 524, PAK: 586, VNM: 704, MMR: 104,
+  THA: 764, LAO: 418, KHM: 116, MYS: 458, IDN: 360,
+  MNG: 496, JPN: 392,
+};
+
+// Numeric-keyed lookup for fast D3 access
+const LSD_LOOKUP: Record<number, typeof LSD_OUTBREAK_DATA[number]> = {};
+for (const entry of LSD_OUTBREAK_DATA) {
+  const num = ISO3_TO_NUMERIC[entry.iso3];
+  if (num) LSD_LOOKUP[num] = entry;
+}
 
 const YEAR_MIN = 2010, YEAR_MAX = 2024;
 
-function getColor(year: number | undefined, currentYear: number): string {
-  if (!year || year > currentYear) return '#1e293b'; // not affected
-  if (currentYear - year <= 2) return '#ef4444'; // recent (<3y)
-  if (currentYear - year <= 6) return '#f59e0b'; // moderate (3-6y)
-  return '#64748b'; // long-standing (>6y)
+function getColor(entry: typeof LSD_OUTBREAK_DATA[number] | undefined, currentYear: number): string {
+  if (!entry || entry.year > currentYear) return '#1e293b';
+  return WAVE_COLORS[entry.cluster as keyof typeof WAVE_COLORS];
 }
 
 export function LSDSpreadMap() {
   const svgRef = useRef<SVGSVGElement>(null);
   const [year, setYear] = useState(2021);
-  const [tooltip, setTooltip] = useState<{ name: string; data: typeof LSD_DATA[number] } | null>(null);
+  const [tooltip, setTooltip] = useState<{ name: string; data: typeof LSD_OUTBREAK_DATA[number] } | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [worldData, setWorldData] = useState<FeatureCollection<Geometry, any> | null>(null);
 
@@ -82,17 +141,16 @@ export function LSDSpreadMap() {
       .attr('d', (d) => path(d) ?? '')
       .attr('fill', (d) => {
         const id = +(d.id ?? 0);
-        const lsdEntry = LSD_DATA[id];
-        return getColor(lsdEntry?.firstYear, year);
+        return getColor(LSD_LOOKUP[id], year);
       })
       .attr('stroke', '#334155')
       .attr('stroke-width', 0.3)
-      .style('cursor', (d) => LSD_DATA[+(d.id ?? 0)] ? 'pointer' : 'default')
+      .style('cursor', (d) => LSD_LOOKUP[+(d.id ?? 0)] ? 'pointer' : 'default')
       .on('mouseenter', (event, d) => {
         const id = +(d.id ?? 0);
-        const lsdEntry = LSD_DATA[id];
-        if (lsdEntry && lsdEntry.firstYear <= year) {
-          setTooltip({ name: d.properties?.name ?? `Country ${id}`, data: lsdEntry });
+        const lsdEntry = LSD_LOOKUP[id];
+        if (lsdEntry && lsdEntry.year <= year) {
+          setTooltip({ name: d.properties?.name ?? lsdEntry.country, data: lsdEntry });
         }
       })
       .on('mouseleave', () => setTooltip(null));
@@ -112,15 +170,17 @@ export function LSDSpreadMap() {
       .text(`LSD 传播地图 — ${year}年`);
 
     // Legend
-    const legend = g.append('g').attr('transform', `translate(${W - 130}, ${H - 80})`);
-    [
-      { color: '#ef4444', label: '近期暴发 (<3年)' },
-      { color: '#f59e0b', label: '中期流行 (3-6年)' },
-      { color: '#64748b', label: '长期流行 (>6年)' },
-      { color: '#1e293b', label: '未报告' },
-    ].forEach(({ color, label }, i) => {
-      legend.append('rect').attr('x', 0).attr('y', i * 16).attr('width', 10).attr('height', 10).attr('rx', 2).attr('fill', color);
-      legend.append('text').attr('x', 14).attr('y', i * 16 + 8).attr('font-size', 8).attr('fill', '#94a3b8').text(label);
+    const legend = g.append('g').attr('transform', `translate(10, ${H - 100})`);
+    ([
+      { color: WAVE_COLORS.endemic, label: WAVE_LABELS.endemic },
+      { color: WAVE_COLORS.wave1,   label: WAVE_LABELS.wave1 },
+      { color: WAVE_COLORS.wave2,   label: WAVE_LABELS.wave2 },
+      { color: WAVE_COLORS.wave3,   label: WAVE_LABELS.wave3 },
+      { color: WAVE_COLORS.wave4,   label: WAVE_LABELS.wave4 },
+      { color: '#1e293b',           label: '未报告 Unreported' },
+    ] as { color: string; label: string }[]).forEach(({ color, label }, i) => {
+      legend.append('rect').attr('x', 0).attr('y', i * 14).attr('width', 9).attr('height', 9).attr('rx', 2).attr('fill', color);
+      legend.append('text').attr('x', 13).attr('y', i * 14 + 7.5).attr('font-size', 7).attr('fill', '#94a3b8').text(label);
     });
   }, [worldData, year]);
 
@@ -134,10 +194,13 @@ export function LSDSpreadMap() {
       <div className="relative rounded-xl overflow-hidden border border-slate-700">
         <svg ref={svgRef} className="w-full" style={{ minHeight: 280 }} />
         {tooltip && (
-          <div className="absolute bottom-4 left-4 rounded-lg bg-slate-800/95 p-3 text-xs text-white max-w-48">
+          <div className="absolute bottom-4 left-4 rounded-lg bg-slate-800/95 p-3 text-xs text-white max-w-52">
             <p className="font-semibold">{tooltip.name}</p>
-            <p className="mt-1 text-slate-300">首次报告：{tooltip.data.firstYear}年</p>
-            <p className="mt-0.5 text-slate-400">{tooltip.data.policy}</p>
+            <p className="mt-1 text-slate-300">首次报告：{tooltip.data.year}年</p>
+            <p className="mt-0.5 text-slate-400">{tooltip.data.region}</p>
+            <p className="mt-0.5 font-medium" style={{ color: WAVE_COLORS[tooltip.data.cluster as keyof typeof WAVE_COLORS] }}>
+              {WAVE_LABELS[tooltip.data.cluster as keyof typeof WAVE_LABELS]}
+            </p>
           </div>
         )}
       </div>
@@ -161,9 +224,10 @@ export function LSDSpreadMap() {
       )}
 
       <div className="rounded-xl bg-slate-800/50 p-3 text-xs leading-5 text-slate-400">
-        LSD自1988年于北非地方性流行，2013年入侵土耳其，2015年蔓延至欧洲（希腊、保加利亚），
-        2019年进入印度次大陆，2021-2022年东南亚大规模暴发（泰国/印尼/越南/柬埔寨/老挝）。
-        澳龙EG95提供跨保护的GTPV疫苗已在东南亚多国获得EUA授权。
+        LSD自1929年于非洲地方性流行（赞比亚），1988年传至北非（埃及），2012-14年第一波席卷中东，
+        2015-16年第二波蔓延欧洲与高加索地区，2019-20年第三波进入南亚与中国，
+        2020-24年第四波在东南亚大规模暴发（越南/缅甸/泰国/柬埔寨/老挝/马来西亚/印尼），2024年传入日本。
+        数据来源：WOAH / FAO / 同行评审文献。
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import { QuizTab } from '@/components/tabs/QuizTab';
 import { VisualTab } from '@/components/tabs/VisualTab';
 import { MolstarViewer } from '@/components/bio/viewers/MolstarViewer';
 import { cn } from '@/lib/utils';
+import { RegulatoryTabContent } from '@/components/tabs/m1/RegulatoryTabContent';
 import moduleData from '@/data/modules/m1-bio-foundation.json';
 import type { PrincipleSection } from '@/lib/types/chapter';
 import type { GlossaryTerm } from '@/lib/types/glossary';
@@ -105,82 +106,7 @@ export default function BioFoundationPage() {
         )}
 
         {activeTab === 'regulatory' && (
-          <div className="space-y-6">
-            <div>
-              <h2 className="mb-1 text-xl font-semibold text-gray-900 dark:text-slate-100">
-                VICH 框架概览
-              </h2>
-              <p className="text-sm text-gray-500 dark:text-slate-400">
-                兽药国际协调委员会 (VICH) 技术指南体系 · 兽用生物制品注册核心法规
-              </p>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                {
-                  code: 'VICH GL1',
-                  title: '效力检验验证',
-                  desc: '规定疫苗批次效力试验设计、统计方法及最低保护阈值要求',
-                  color: 'blue',
-                },
-                {
-                  code: 'VICH GL2',
-                  title: '安全性研究',
-                  desc: '目标动物、实验室动物及环境安全性评估，含过量接种试验',
-                  color: 'green',
-                },
-                {
-                  code: 'VICH GL8',
-                  title: '稳定性研究',
-                  desc: '货架期验证、加速老化试验、实时稳定性数据要求',
-                  color: 'amber',
-                },
-                {
-                  code: 'VICH GL44',
-                  title: '免疫学研究',
-                  desc: '血清学终点、免疫持续期、母源抗体干扰评估',
-                  color: 'violet',
-                },
-              ].map((item) => (
-                <div
-                  key={item.code}
-                  className={cn(
-                    'rounded-xl border p-4',
-                    item.color === 'blue' && 'border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/30',
-                    item.color === 'green' && 'border-green-200 bg-green-50 dark:border-green-800 dark:bg-green-950/30',
-                    item.color === 'amber' && 'border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30',
-                    item.color === 'violet' && 'border-violet-200 bg-violet-50 dark:border-violet-800 dark:bg-violet-950/30',
-                  )}
-                >
-                  <p className={cn(
-                    'mb-1 text-xs font-bold uppercase tracking-wide',
-                    item.color === 'blue' && 'text-blue-600 dark:text-blue-400',
-                    item.color === 'green' && 'text-green-600 dark:text-green-400',
-                    item.color === 'amber' && 'text-amber-600 dark:text-amber-400',
-                    item.color === 'violet' && 'text-violet-600 dark:text-violet-400',
-                  )}>
-                    {item.code}
-                  </p>
-                  <p className="mb-1 text-sm font-semibold text-gray-900 dark:text-slate-100">
-                    {item.title}
-                  </p>
-                  <p className="text-xs leading-5 text-gray-600 dark:text-slate-400">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="rounded-xl bg-gray-50 p-4 text-sm leading-6 text-gray-600 dark:bg-slate-800 dark:text-slate-400">
-              <p className="mb-2 font-semibold text-gray-900 dark:text-slate-100">
-                中国注册路径 · NMPA 兽药注册
-              </p>
-              <p>
-                澳龙 EG95 疫苗须依据《兽药注册办法》（2020 修订版）申报，
-                核心材料包括：CMC（化学、制造和控制）资料、GLP 安全性研究报告、
-                GCP 田间效力试验、及与 VICH 指南对应的质量标准草案。
-                临床试验须在 CNKI 认证的 GCP 基地完成，绵羊自然感染模型攻毒保护率 ≥ 90% 为核准门槛。
-              </p>
-            </div>
-          </div>
+          <RegulatoryTabContent />
         )}
 
         {activeTab === 'market' && (

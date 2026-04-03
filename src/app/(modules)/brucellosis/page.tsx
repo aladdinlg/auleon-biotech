@@ -1,6 +1,7 @@
 import { ModulePage } from '@/components/modules/ModulePage';
 import moduleData from '@/data/modules/m3-brucellosis.json';
 import { MechanismTabContent } from '@/components/tabs/m3/MechanismTabContent';
+import { RegulatoryTabContent } from '@/components/tabs/m3/RegulatoryTabContent';
 
 const marketContent = (
   <div className="space-y-6">
@@ -60,5 +61,5 @@ const marketContent = (
 
 export default function BrucellosiPage() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return <ModulePage moduleData={moduleData as any} mechanismContent={<MechanismTabContent />} marketContent={marketContent} />;
+  return <ModulePage moduleData={moduleData as any} mechanismContent={<MechanismTabContent />} regulatoryContent={<RegulatoryTabContent />} marketContent={marketContent} />;
 }
